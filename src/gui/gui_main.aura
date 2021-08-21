@@ -52,7 +52,28 @@ AuraEngine Class Void Loop
 					{
 						AuraEngine.ObjectTexture(Object.SetScale(curObjScale + 0.9));
 						App.Sleep(1000 / bpm);
+						AuraEngine.ObjectTexture(Object.SetScale(1));
+					};
+				};
+			};
+		AuraEngine.ObjectTexture("Opponent_Icon", "./assets/icon/index.png", SplitTex(768, 32, 32, 32));
+		AuraEngine.ObjectNode().Properties()
+		{
+			Object.Select("Opponent_Icon");
+			Object.OffsetTexture(-3, 4, 9, -2, -8 ,-2);
 
+			AuraEngine Private Static Function bump()
+			{
+				Parse int animationFrames = 5;
+				Parse int bpm = 100;
+
+				AuraEngine.Event(AuraEngine.Function is Function.Triggered())
+				{
+					AuraEngine.RepeatAction(animationFrames)
+					{
+						AuraEngine.ObjectTexture(Object.SetScale(curObjScale + 0.9));
+						App.Sleep(1000 / bpm);
+						AuraEngine.ObjectTexture(Object.SetScale(1));
 					};
 				};
 			};
@@ -74,7 +95,9 @@ AuraEngine Class Void Loop
 		AuraEngine Function grid()
 		{
 			AuraEngine.ObjectPosition("BF_Icon");
-			AuraEngine.SetPosition(MathLib.Len(obj("BF_Icon") - currentLife / 2.3), screen("down-center") + 60);
+			AuraEngine.SetPosition(MathLib.Len(obj("BF_Icon") - currentLife / 2.3), Static(screen("down-center") + 60));
+			AuraEngine.ObjectPosition("Oppopnent_Icon");
+			AuraEngine.SetPosition(MathLib.Len(obj("Opponent_Icon")+ currentLife / 2.3), Static(screen("down-center") + 60));			
 		};
 	};
 
@@ -82,5 +105,7 @@ AuraEngine Class Void Loop
 
 AuraEngine Class Void End
 {
-
+	Styler.ClearScreen();
+	StylerPlus.Shutdown();
+	App.Console.WriteScreen("App ended!");
 };

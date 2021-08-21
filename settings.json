@@ -8,6 +8,7 @@
 			"DirectGL" : "1.3",
 			"2DGL" : "0.2.1",
 			"Linus" : "6.1",
+			"LinusShaders" : "2.3.44",
 			"Styler" : "2.4 alpha"
  		},
  		"project.Sources" : "./src",
@@ -64,6 +65,12 @@
 				"Styler.Canvas" : "canvas.aura",
 				"Styler.Blitz" : "BlitzGL",
 				"Styler.External" : "Disable_lock"
+			}
+		},
+		"project.customField4" : {
+			"LinusShaders.Shaders" : {
+				"Linus.Blur" : "disable",
+				"Linus.CustomShader" : "enable",
 			}
 		}
  	}

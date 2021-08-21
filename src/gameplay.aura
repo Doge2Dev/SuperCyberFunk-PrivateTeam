@@ -23,30 +23,33 @@ AuraEngine Class Void Loop
 {
 	AuraEngine.Event(Scene("start")) 
 	{
-		AuraEngine.UpdateObjectPos(Using("bf.aura") Run{
+		AuraEngine.UpdateObjectPos(Using("bf.aura") Run
+		{
 			AuraEngine.ObjectPos(980, 645);
-		}
+		};
 		AuraEngine.Event(Object.Pos().Updated())
 		{
 			return;
-		}
+		};
 		);
-		AuraEngine.UpdateObjectPos(Using("gf.aura") Run{
+		AuraEngine.UpdateObjectPos(Using("gf.aura") Run
+		{
 			AuraEngine.ObjectPos(Center(), Center());
-		}
+		};
 		AuraEngine.Event(Object.Pos().Updated())
 		{
 			return;
-		}
+		};
 		);
-		AuraEngine.UpdateObjectPos(Using("opponent.aura") Run{
+		AuraEngine.UpdateObjectPos(Using("opponent.aura") Run
+		{
 			AuraEngine.ObjectPos(380, 645);
-		}
+		};
 		AuraEngine.Event(Object.Pos().Updated())
 		{
 			AuraEngine.Texture(ObjectTex(CurrentTex().Flip));
 			return;
-		}
+		};
 		);
 
 		EventManager.Chart.Event("HeartScreen", 13);

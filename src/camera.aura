@@ -1,0 +1,16 @@
+AuraEngine.Event(AuraEngine.Scene is Scene.Init() && AuraEngine.Camera is Camera.Init())
+{
+	AuraEngine.CameraNode()
+	{
+		AuraEngine.ImportShader("./sfcshader.lsf");
+
+		AuraEngine.Event(AuraEngine.ImportShader() is Shader.ImportEnd())
+		{
+			String[] camera = AuraEngine.Shader().Init;
+			String[] shader = new AuraEngine.Shader();
+
+			AuraEngine.CameraNode().UseShaderIndex(camera) && AuraEngine.CameraNode().ShaderStart("scfshader");
+		};
+	};
+};
+

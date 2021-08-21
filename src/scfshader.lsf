@@ -1,0 +1,40 @@
+/*Linus shader file*/
+
+shader.Init(): {
+	on.Init().Once: {
+		Parse camx = camx - 0.2;
+		Parse camy = camy + 0.2;
+		Parse borderPixel = 3
+		Parse border = ScreenResolution() / ScreenResolution() - borderPixel;
+		Parse borderColor = [0, 0, 0,];
+		Parse screen = Screen().GetPolygon();
+
+		on.InstanceInit(): {
+			condition.Variable (Global "ACTIVE" !! 0): {
+				screen.Polygon(): {
+					effect.Apply("thickness");
+					effect.Properties(): {
+						effect.Properties("thickness" => 0.74);
+						effect.Border("color" => borderColor);
+					};
+				};
+			};
+			condition.Variable (Global "ACTIVE" == 0): {
+				screen.Polygon(): {
+					effect.Apply("thickness");
+					effect.Properties(): {
+						effect.Properties("thickness" => 0.74);
+						effect.Border("color" => borderColor);
+					};
+				};
+			};
+		};
+	};
+	on.Init(): {
+		shader.StartEngine();
+
+		on.Shader().EngineStarted(): {
+			shader.Render();
+		};
+	};
+};

@@ -74,6 +74,11 @@ AuraEngine Class Void Loop
 
 	//Update Scene
 	AuraEngine.UpdateScene();
+
+	AuraEngine.Event(AuraEngine.Scene() is Scene.Updated())
+	{
+		
+	};
 };
 
 AuraEngine Class Void End 

@@ -12,6 +12,7 @@ Function Define Init() //current vanilla aura function lmao =3
 	IUse.AuraLibManager(AuraEngine.Dependencies) = AuraDependencies;
 };
 
+//Settings here
 AuraEngine.Project(CurrentProject(Setup)) 
 {
 	ProjectSettings.SetSettings(UseExternal("./settings.json"))
@@ -20,8 +21,36 @@ AuraEngine.Project(CurrentProject(Setup))
 AuraCore.Settings(Current) 
 {
 	AuraDependencies.Using("2DGL") && AuraDependencies.LoadDepSettings("./settings.json");
-	AuraEngine.Effects() = Using(IUse.AuraLibManager("BlasterFX") = blasterfx())
+	AuraEngine.Effects() = Using(IUse.AuraLibManager("BlasterFX") = Blasterfx());
 };
 
 
+//Change the render engine for system types.
+AuraEngine.RenderOptions()
+{
+	String[] systemType = AuraEngine.GetSystemArch();
+
+	switch(systemType = type()) {
+		case type.Windows:
+			AuraEngine.RenderEngine(UseExternal("./settings.json"), "DirectGL.DirectXRender.dll");
+		break
+
+		case type.Mac:
+			AuraEngine.RenderEngine(UseExternal("./settings.json"), "2DGL.OpenNexus.dll");			
+		break
+		case type.Linux:
+			AuraEngine.RenderEngine(UseExternal("./settings.json"), "2DGL.DirectGLSupport.dll");		
+		break
+
+		case type.Nexus.System:
+			AuraEngine.RenderEngine(UseExternal("./settings.json"), "Direct.2DGLSupport.dll");		
+		break
+
+		case type.Nexus.Server:
+			AuraEngine.RenderEngine(UseExternal("./settings.json"), "2DGL.OpenGL2Dr.dll");		
+		break
+	};
+};
+
+//lets initialize baby =3
 AuraEngine.Init();

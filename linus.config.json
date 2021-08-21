@@ -1,0 +1,24 @@
+{
+	"info" : "Linus Config File",
+	"Linus" : {
+		"Linus.AdvancedSettings" : {
+			"Linus.RenderEngine" : {
+				"systemCase" : {
+					"appType.Windows" : "DirectGL.DirectXRender",
+					"appType.Mac" : "2DGL.OpenNexus",
+					"appType.Linux" : "2DGL.DirectGLSupport",
+					"appType.NexusSystem" : "Direct.2DGLSupport",
+					"appType.NexusServer" : "2DGL.OpenGL2D"					
+				}
+			},
+			"Linus.RenderEngine.onError" : {
+				"Linus.GenerateMessage" : "Exception()"
+			}
+		},
+		"Linus.Shaders" : {
+			"Linus.SCFShader" : {
+				"Linus.SCFShader.External" : "./src/scfshader.lsf"
+			}
+		}
+	}
+}
