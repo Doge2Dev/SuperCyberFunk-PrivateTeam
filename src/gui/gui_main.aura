@@ -1,0 +1,86 @@
+//init stuff
+IUse.AuraLibManager("Styler") = Styler();
+IUse.AuraLibManager("StylerPlus") = StylerPlus();
+
+//Documented (not need canvas script anymore =])
+
+
+/*
+Styler.Init()
+Styler.RequestGUI()
+Styler.ImportGUIMap()
+Styler.Stop()
+Styler.onStart()
+*/
+
+Parse int currentLife = 50;
+Parse int enemyLife = 50;
+Parse AuraEngine Function screen(type)
+{
+	AuraEngine.Screen(toString(type));
+};
+
+AuraEngine Class Void Start
+{
+	Styler.Init();
+	Styler.DrawRect(screen("down-center"), screen("down-center") + 32, 640, 37, "black");
+
+	AuraEngine.Event(Styler.DrawProcess().End)
+	{
+		App.Console.WriteScreen("end draw");
+	};
+};
+
+AuraEngine Class Void Loop
+{
+	AuraEngine.ObjectNode("BF_Icon", Edit)
+	{
+		AuraEngine.ObjectTexture("BF_Icon", "./assets/icon/index.png", SplitTex(256, 0, 32, 32));
+		AuraEngine.ObjectNode().Properties()
+		{
+			Object.Select("BF_Icon");
+			Object.OffsetTexture(-3, 5, 9, -1, -8 ,-2);
+
+			AuraEngine Private Static Function bump()
+			{
+				Parse int animationFrames = 5;
+				Parse int bpm = 100;
+
+				AuraEngine.Event(AuraEngine.Function is Function.Triggered())
+				{
+					AuraEngine.RepeatAction(animationFrames)
+					{
+						AuraEngine.ObjectTexture(Object.SetScale(curObjScale + 0.9));
+						App.Sleep(1000 / bpm);
+
+					};
+				};
+			};
+		};
+	};
+
+	StylerPlus.CreateUILayer("Obj_Counter");
+	StylerPlus.SetCurrentLayer("Obj_Counter");
+	StylerPlus.Init("engine");
+
+	String[] obj = AuraEngine.asSynchronized();
+	StylerPlus.DrawRect(null);
+
+	AuraEngine Public Function GridDraw()
+	{
+		Using Math.aura as MathLib{};
+		Using AuraEngine.PositionCore as PosCore{};
+
+		AuraEngine Function grid()
+		{
+			AuraEngine.ObjectPosition("BF_Icon");
+			AuraEngine.SetPosition(MathLib.Len(obj("BF_Icon") - currentLife / 2.3), screen("down-center") + 60);
+		};
+	};
+
+};
+
+AuraEngine Class Void End
+{
+
+};

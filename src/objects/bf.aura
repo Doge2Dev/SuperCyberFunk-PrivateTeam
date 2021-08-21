@@ -1,0 +1,239 @@
+Library("AuraSheet");
+AuraEngine.ExportClass() 
+{
+
+	IUse.AuraLibManager("AuraSheet") = ASheet();
+	AuraEngine Class Public anim_BF() 
+	{
+
+		String[] spritesheet = AuraEngine.LoadTexture("./src/img/bf.png");
+		String[] spritemap = AuraEngine.LoadSpriteMap("./objects/bf.json");
+
+		//function to load animations in the class
+		AuraEngine Function BF.Animation(type) 
+		{
+			AuraEngine.Object('BF');
+
+			int defaultFrame = 0;
+			int animFrames = 5;
+			int animEnd = 5;
+
+				//defining the animations using string
+			if (Animation.type == "idle") 
+			{
+				int defaultFrame = 0;
+				int animFrames = 5;
+				int animEnd = 5;
+				AuraEngine.Object(AnimationFrame(defaultFrame));
+				AuraEngine.SpriteMap(CurrentAnimation("idle").load());
+
+				AuraEngine.Event(Loop(animFrames)) 
+				{
+					int i = animEnd;
+
+					AuraEngine.Object(AnimationFrame(i)) && i++;
+
+				};
+				AuraEngine.EventEnd(Loop) 
+				{
+					AuraEngine.End();
+				};
+
+
+			};
+			if (Animation.type == "up") 
+			{
+				int defaultFrame = 0;
+				int animFrames = 2;
+				int animEnd = 2;
+				AuraEngine.Object(AnimationFrame(defaultFrame));
+				AuraEngine.SpriteMap(CurrentAnimation("up").load());
+
+				AuraEngine.Event(Loop(animFrames)) 
+				{
+					int i = animEnd;
+
+					AuraEngine.Object(AnimationFrame(i)) && i++;
+
+				};
+				AuraEngine.EventEnd(Loop) 
+				{
+					AuraEngine.End();
+				};
+
+
+			};
+			if (Animation.type == "down") 
+			{
+				int defaultFrame = 0;
+				int animFrames = 2;
+				int animEnd = 2;
+				AuraEngine.Object(AnimationFrame(defaultFrame));
+				AuraEngine.SpriteMap(CurrentAnimation("down").load());
+
+				AuraEngine.Event(Loop(animFrames)) 
+				{
+					int i = animEnd;
+
+					AuraEngine.Object(AnimationFrame(i)) && i++;
+
+				};
+				AuraEngine.EventEnd(Loop) 
+				{
+					AuraEngine.End();
+				};
+
+
+			};
+			if (Animation.type == "left") 
+			{
+				int defaultFrame = 0;
+				int animFrames = 2;
+				int animEnd = 2;
+				AuraEngine.Object(AnimationFrame(defaultFrame));
+				AuraEngine.SpriteMap(CurrentAnimation("left").load());
+
+				AuraEngine.Event(Loop(animFrames)) 
+				{
+					int i = animEnd;
+
+					AuraEngine.Object(AnimationFrame(i)) && i++;
+
+				};
+				AuraEngine.EventEnd(Loop) 
+				{
+					AuraEngine.End();
+				};
+
+
+			};
+			if (Animation.type == "right") 
+			{
+				int defaultFrame = 0;
+				int animFrames = 2;
+				int animEnd = 2;
+				AuraEngine.Object(AnimationFrame(defaultFrame));
+				AuraEngine.SpriteMap(CurrentAnimation("right").load());
+
+				AuraEngine.Event(Loop(animFrames)) 
+				{
+					int i = animEnd;
+
+					AuraEngine.Object(AnimationFrame(i)) && i++;
+
+				};
+				AuraEngine.EventEnd(Loop) 
+				{
+					AuraEngine.End();
+				};
+
+			};
+			if (Animation.type == "hit") 
+			{
+				AuraEngine.Object(AnimationFrame(defaultFrame));
+				AuraEngine.SpriteMap(CurrentAnimation("hit").load());
+
+				AuraEngine.Object(AnimationFrame(1), AnimationSequence("hit"));
+				App.Sleep(0.2);
+				AuraEngine.Object(AnimationSequence("idle"));
+			};
+
+			if (Animation.type == "kill") 
+			{
+				int defaultFrame = 0;
+				int animFrames = 7;
+				int animEnd = 7;
+				AuraEngine.Object(AnimationFrame(defaultFrame));
+				AuraEngine.SpriteMap(CurrentAnimation("kill").load());
+
+				AuraEngine.Event(Loop(animFrames)) 
+				{
+					int i = animEnd;
+
+					AuraEngine.Object(AnimationFrame(i)) && i++;
+
+				};
+				AuraEngine.EventEnd(Loop) 
+				{
+					AuraEngine.End();
+				};
+				
+			};
+			//engine object initialization class =)
+			AuraEngine.InitObject();
+		};
+	};
+
+	//Game loop function
+	AuraEngine Class Static Public game()
+	{	
+		String[] auraObj = AuraEngine.ObjectNode("Arrow");
+
+		String[] k = AuraEngine.Using(Component.SystemComponent("Keyboard.aura"));
+
+		String[] key = AuraEngine.Event(k.TestKey());
+
+		if (key == k.Key("sys.upArrow")) && (auraObject.AuraEngine.Event(ObjectCollision("ArrowRed")))
+		{
+			AuraEngine.ObjectNode().DestroyClone("Arrow_Red");
+			AuraEngine.Player[].AddScore(RandInt(15,35));
+			bf.AnimationType("up");
+			Console.Writescreen("up arrow");
+		};
+		else if (key == k.Key("sys.downArrow")) && (auraObject.AuraEngine.Event(ObjectCollision("ArrowBlue")) == true)
+		{
+			AuraEngine.ObjectNode().DestroyClone("Arrow_Blue");
+			AuraEngine.Player[].AddScore(RandInt(15,35));
+			bf.AnimationType("down");
+			Console.Writescreen("down arrow");
+		};
+		else if (key == k.Key("sys.leftArrow")) && (auraObject.AuraEngine.Event(ObjectCollision("ArrowGreen")) == true)
+		{
+			AuraEngine.ObjectNode().DestroyClone("Arrow_Green");
+			AuraEngine.Player[].AddScore(RandInt(15,35));
+			bf.AnimationType("left");
+			Console.Writescreen("left arrow");
+		};
+		else if (key == k.Key("sys.rightArrow")) && (auraObject.AuraEngine.Event(ObjectCollision("ArrowYellow")) == true)
+		{
+			AuraEngine.ObjectNode().DestroyClone("Arrow_Yellow");
+			AuraEngine.Player[].AddScore(RandInt(15,35));
+			bf.AnimationType("right");
+			Console.Writescreen("right arrow");
+		};
+
+
+		//remove score if key is pressed and not collission detected
+		if (key == k.Key("sys.upArrow")) && ! (AuraObject().AuraEngine.Event(ObjectCollision("ArrowRed")) == true)
+		{	
+			AuraEngine.Player[].RemoveScore(RandInt(15,35));
+			bf.AnimationType("hit");
+			Console.Writescreen("wrong up arrow");
+		};
+		else if (key == k.Key("sys.downArrow")) && ! (auraObject.AuraEngine.Event(ObjectCollision("ArrowBlue")) == true)
+		{
+			AuraEngine.Player[].RemoveScore(RandInt(15,35));
+			bf.AnimationType("hit");
+			Console.Writescreen("wrong down arrow");
+		};
+		else if (key == k.Key("sys.leftArrow")) && ! (auraObject.AuraEngine.Event(ObjectCollision("ArrowGreen")) == true)
+		{
+			AuraEngine.Player[].RemovedScore(RandInt(15,35));
+			bf.AnimationType("hit");
+			Console.Writescreen("wrong left arrow");
+		};
+		else if (key == k.Key("sys.rightArrow")) && ! (auraObject.AuraEngine.Event(ObjectCollision("ArrowYellow")) == true)
+		{
+			AuraEngine.Player[].RemoveScore(RandInt(15,35));
+			bf.AnimationType("hit");
+			Console.Writescreen("wrong right arrow");
+		};
+
+		//key release event
+		if (AuraEngine.Event(k.Key().Release))
+		{
+			App.Sleep(0.2);
+			bf.AnimationType("idle");	
+		};
+	};
+};

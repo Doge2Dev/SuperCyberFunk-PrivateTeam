@@ -1,0 +1,27 @@
+Library(AuraEngine);
+Library(AuraEngine.Core);
+Library(AuraEngine.Module);
+Import(./settings.json);
+
+
+Function Define Init() //current vanilla aura function lmao =3
+{
+	IUse.AuraLibManager(AuraEngine) = AuraEngine;
+	IUse.AuraLibManager(AuraEngine.Core) = AuraCore;
+	IUse.AuraLibManager(AuraEngine.Module) = AuraModule;
+	IUse.AuraLibManager(AuraEngine.Dependencies) = AuraDependencies;
+};
+
+AuraEngine.Project(CurrentProject(Setup)) 
+{
+	ProjectSettings.SetSettings(UseExternal("./settings.json"))
+};
+
+AuraCore.Settings(Current) 
+{
+	AuraDependencies.Using("2DGL") && AuraDependencies.LoadDepSettings("./settings.json");
+	AuraEngine.Effects() = Using(IUse.AuraLibManager("BlasterFX") = blasterfx())
+};
+
+
+AuraEngine.Init();

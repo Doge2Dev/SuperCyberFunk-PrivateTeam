@@ -1,0 +1,25 @@
+AuraEngine.ExportScript() {
+
+	AuraEngine Class Void Start
+	{	
+		Table{"Object"} Arrows = [
+			String[] arrowRed = AuraEngine.Project(ImportObject("Arrow_red"));
+			String[] arrowBlue = AuraEngine.Project(ImportObject("Arrow_blue"));
+			String[] arrowGreen = AuraEngine.Project(ImportObject("Arrow_green"));
+			String[] arrowYellow = AuraEngine.Project(ImportObject("Arrow_yellow"));
+		];
+
+		int velocity = 2.4;
+	};
+
+	AuraEngine Class Void Loop
+	{
+		AuraEngine.UpdateObjectPos(Using.Table["Arrows"].Y, Obj.Y() * velocity);
+	};
+
+	AuraEngine Class Void End
+	{
+		.IOReturn(Void);
+	};
+};
+

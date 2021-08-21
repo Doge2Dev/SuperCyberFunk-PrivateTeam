@@ -1,0 +1,159 @@
+Library("AuraSheet");
+AuraEngine.ExportClass()
+{
+
+	IUse.AuraLibManager("AuraSheet") = ASheet();
+	AuraEngine Class Public anim_Enemy() 
+	{
+
+		String[] spritesheet = AuraEngine.LoadTexture("./src/img/oppon.png");
+		String[] spritemap = AuraEngine.LoadSpriteMap("./objects/oppon.json");
+
+		//function to load animations in the class
+		AuraEngine Function Oppon.Animation(type) 
+		{
+			AuraEngine.Object('Opponent');
+
+			int defaultFrame = 0;
+			int animFrames = 5;
+			int animEnd = 5;
+
+				//defining the animations using string
+			if (Animation.type == "idle") 
+			{
+				int defaultFrame = 0;
+				int animFrames = 5;
+				int animEnd = 5;
+				AuraEngine.Object(AnimationFrame(defaultFrame));
+				AuraEngine.SpriteMap(CurrentAnimation("idle").load());
+
+				AuraEngine.Event(Loop(animFrames)) 
+				{
+					int i = animEnd;
+
+					AuraEngine.Object(AnimationFrame(i)) && i++;
+
+				};
+				AuraEngine.EventEnd(Loop) 
+				{
+					AuraEngine.End();
+				};
+
+
+			};
+			if (Animation.type == "up") 
+			{
+				int defaultFrame = 0;
+				int animFrames = 2;
+				int animEnd = 2;
+				AuraEngine.Object(AnimationFrame(defaultFrame));
+				AuraEngine.SpriteMap(CurrentAnimation("up").load());
+
+				AuraEngine.Event(Loop(animFrames)) 
+				{
+					int i = animEnd;
+
+					AuraEngine.Object(AnimationFrame(i)) && i++;
+
+				};
+				AuraEngine.EventEnd(Loop) 
+				{
+					AuraEngine.End();
+				};
+
+
+			};
+			if (Animation.type == "down") 
+			{
+				int defaultFrame = 0;
+				int animFrames = 2;
+				int animEnd = 2;
+				AuraEngine.Object(AnimationFrame(defaultFrame));
+				AuraEngine.SpriteMap(CurrentAnimation("down").load());
+
+				AuraEngine.Event(Loop(animFrames)) 
+				{
+					int i = animEnd;
+
+					AuraEngine.Object(AnimationFrame(i)) && i++;
+
+				};
+				AuraEngine.EventEnd(Loop) 
+				{
+					AuraEngine.End();
+				};
+
+
+			};
+			if (Animation.type == "left") 
+			{
+				int defaultFrame = 0;
+				int animFrames = 2;
+				int animEnd = 2;
+				AuraEngine.Object(AnimationFrame(defaultFrame));
+				AuraEngine.SpriteMap(CurrentAnimation("left").load());
+
+				AuraEngine.Event(Loop(animFrames)) 
+				{
+					int i = animEnd;
+
+					AuraEngine.Object(AnimationFrame(i)) && i++;
+
+				};
+				AuraEngine.EventEnd(Loop) 
+				{
+					AuraEngine.End();
+				};
+
+
+			};
+			if (Animation.type == "right") 
+			{
+				int defaultFrame = 0;
+				int animFrames = 2;
+				int animEnd = 2;
+				AuraEngine.Object(AnimationFrame(defaultFrame));
+				AuraEngine.SpriteMap(CurrentAnimation("right").load());
+
+				AuraEngine.Event(Loop(animFrames)) 
+				{
+					int i = animEnd;
+
+					AuraEngine.Object(AnimationFrame(i)) && i++;
+
+				};
+				AuraEngine.EventEnd(Loop) 
+				{
+					AuraEngine.End();
+				};
+
+			};
+			//engine object initialization class =)
+			AuraEngine.InitObject();
+		};
+	};
+
+	AuraEngine Static Public opp_game() 
+	{
+		if (auraObject.AuraEngine.Event(ObjectCollision("ArrowRed")))
+		{
+			AuraEngine.ObjectNode().DestroyClone();
+			Oppon.Animation("up");
+		};
+		if (auraObject.AuraEngine.Event(ObjectCollision("ArrowBlue")))
+		{
+			AuraEngine.ObjectNode().DestroyClone();
+			Oppon.Animation("down");
+		};
+		if (auraObject.AuraEngine.Event(ObjectCollision("ArrowGreen")))
+		{
+			AuraEngine.ObjectNode().DestroyClone();
+			Oppon.Animation("left");
+		};
+		if (auraObject.AuraEngine.Event(ObjectCollision("ArrowYellow")))
+		{
+			AuraEngine.ObjectNode().DestroyClone();
+			Oppon.Animation("right");
+		};
+	};
+};

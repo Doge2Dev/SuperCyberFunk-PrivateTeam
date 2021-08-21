@@ -1,0 +1,19 @@
+AuraEngine.ExportScript(Functions(GlobalFunctions))
+{
+	
+	AuraEngine Public Function Chart[];	
+
+	AuraEngine Public Function Chart.Event(eventStr, sections)
+	{
+		if (eventStr == "HeartScreen") && (sections != null)
+		{
+			AuraEngine.ObjectTexture("Opponent.aura", AuraEngine.JsonSpriteMap(Section("Heartscreen")));
+			AuraEngine.Event(AuraEngine.JsonSpriteMap().AnimationEnd())
+			{
+				AuraEngine.ObjectTexture("Opponent.aura", "Idle");
+				return;
+			};
+
+		};
+	};
+};

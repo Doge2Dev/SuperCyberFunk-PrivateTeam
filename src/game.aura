@@ -1,0 +1,100 @@
+Import.Script("arrow.aura")
+
+AuraEngine Class Void Start 
+{
+
+
+	AuraEngine Class Scene("main", "private") 
+	{
+		AuraEngine.ObjectNode(CreateObjectNode("Arrow_red"));
+		AuraEngine.ObjectNode(CreateObjectNode("Arrow_blue"));
+		AuraEngine.ObjectNode(CreateObjectNode("Arrow_green"));
+		AuraEngine.ObjectNode(CreateObjectNode("Arrow_yellow"));
+
+		AuraEngine.ObjectNode("Arrow_red") 
+		{
+			AuraEngine.SetObjectPos(256, 256);
+		};
+		AuraEngine.ObjectNode("Arrow_blue") 
+		{
+			AuraEngine.SetObjectPos(256 / (256 * 32), 256);
+		};
+		AuraEngine.ObjectNode("Arrow_green") 
+		{
+			AuraEngine.SetObjectPos(256 / (512 * 32), 256);
+		};
+		AuraEngine.ObjectNode("Arrow_yellow") 
+		{
+			AuraEngine.SetObjectPos(256 / (768 * 32), 256);
+		};
+
+		AuraEngine.ObjectNode(CreateObjectNode("BF"));
+		AuraEngine.ObjectNode(CreateObjectNode("GF"));
+
+		AuraEngine.ObjectNode(Object("BF", ExportGlobal = true);
+		AuraEngine.ObjectNode(Object("GF", ExportGlobal = true);
+		AuraEngine.ObjectNode(Object("Arrow_red", ExportGlobal = true);
+		AuraEngine.ObjectNode(Object("Arrow_blue", ExportGlobal = true);
+		AuraEngine.ObjectNode(Object("Arrow_green", ExportGlobal = true);
+		AuraEngine.ObjectNode(Object("Arrow_yellow", ExportGlobal = true);
+
+
+		AuraEngine.ObjectNode("GF") 
+		{
+			AuraEngine.ObjectTexture(texture);
+			AuraEngine.SetObjectPos("center", "center"),
+		};
+		AuraEngine.ObjectNode("BF") 
+		{
+			AuraEngine.ObjectTexture(texture);
+			AuraEngine.SetObjectPos(IntCenter(Screen()) + 256, "center"),
+		};
+
+		AuraEngine.ImportComponent(CompList["AuraComponents"]);
+		AuraEngine.UseComponent("KeyboardManager");
+		AuraEngine.SystemComponent(SysPermission.asSynchronized());
+
+		AuraEngine.ObjectProperties(UseProps(Script(Script.Table["Arrows"])));
+
+	};
+
+	//initialize engine
+	AuraEngine.Init();
+};
+
+AuraEngine Class Void Loop 
+{
+	//load classes to init scene =)
+	AuraEngine.LoadScene("main");
+	AuraEngine.LoadClass("bf.aura");
+	AuraEngine.LoadClass("bf.game.aura");
+	AuraEngine.LoadClass("opponent.aura");
+	AuraEngine.LoadClass("opponent.opp_game.aura");
+
+
+	//Update Scene
+	AuraEngine.UpdateScene();
+};
+
+AuraEngine Class Void End 
+{
+	AuraEngine.Actors(ReleaseObjects());
+};
+
+/* generate texture (placeholder)
+AuraEngine Class Public ActorsTexture() 
+{
+
+	static texture = AuraEngine.TextureGen(TextureColor("red"));
+};
+*/
+
+AuraEngine Class Private ActorsScripts() 
+{
+
+	String[] bf.actions = AuraEngine.LoadActor().Exported("./objects/bf.aura");
+	String[] gf.actions = AuraEngine.LoadActor().Exported("./objects/gf.aura");
+	String[] opponent.actions = AuraEngine.LoadActor().Exported("./objects/opponent.aura");	
+	
+};
+
