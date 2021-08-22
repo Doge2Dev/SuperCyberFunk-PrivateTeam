@@ -47,7 +47,7 @@ AuraEngine.RenderOptions()
 		break
 
 		case type.Nexus.Server:
-			AuraEngine.RenderEngine(UseExternal("./settings.json"), "2DGL.OpenGL2Dr.dll");		
+			AuraEngine.RenderEngine(UseExternal("./settings.json"), "2DGL.OpenGL2D.dll");		
 		break
 	};
 };

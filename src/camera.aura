@@ -14,3 +14,9 @@ AuraEngine.Event(AuraEngine.Scene is Scene.Init() && AuraEngine.Camera is Camera
 	};
 };
 
+AuraEngine.Event(AuraEngine.External() is External.FunctionTriggered(thicc()))
+{
+	AuraEngine.ShaderUse(CurrentShader(), Shader.VarCondition("ACTIVE", 1));
+	App.Console.WriteScreen("Function triggered").ParseString();
+};
+

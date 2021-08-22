@@ -2,12 +2,13 @@
 
 shader.Init(): {
 	on.Init().Once: {
-		Parse camx = camx - 0.2;
-		Parse camy = camy + 0.2;
-		Parse borderPixel = 3
-		Parse border = ScreenResolution() / ScreenResolution() - borderPixel;
-		Parse borderColor = [0, 0, 0,];
-		Parse screen = Screen().GetPolygon();
+		Parse GLOBAL ACTIVE = 0;
+		Parse FLOAT camx = camx - 0.2;
+		Parse FLOAT camy = camy + 0.2;
+		Parse INT borderPixel = 3
+		Parse DOUBLE border = ScreenResolution() / ScreenResolution() - borderPixel;
+		Parse TABLE INT borderColor = [0, 0, 0,];
+		Parse STRING screen = Screen().GetPolygon();
 
 		on.InstanceInit(): {
 			condition.Variable (Global "ACTIVE" !! 0): {
@@ -23,7 +24,7 @@ shader.Init(): {
 				screen.Polygon(): {
 					effect.Apply("thickness");
 					effect.Properties(): {
-						effect.Properties("thickness" => 0.74);
+						effect.Properties("thickness" => 0);
 						effect.Border("color" => borderColor);
 					};
 				};

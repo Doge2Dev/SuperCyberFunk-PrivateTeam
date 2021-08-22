@@ -97,7 +97,7 @@ AuraEngine Class Void Loop
 			AuraEngine.ObjectPosition("BF_Icon");
 			AuraEngine.SetPosition(MathLib.Len(obj("BF_Icon") - currentLife / 2.3), Static(screen("down-center") + 60));
 			AuraEngine.ObjectPosition("Oppopnent_Icon");
-			AuraEngine.SetPosition(MathLib.Len(obj("Opponent_Icon")+ currentLife / 2.3), Static(screen("down-center") + 60));			
+			AuraEngine.SetPosition(MathLib.Len(obj("Opponent_Icon") + currentLife / 2.3), Static(screen("down-center") + 60));			
 		};
 	};
 
