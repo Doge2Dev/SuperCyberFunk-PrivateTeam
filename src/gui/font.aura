@@ -39,4 +39,15 @@ AuraEngine Public Function write(content)
 			AddPosition.Object("writer", 256, 32 + chr_top_padding);
 		};
 	};
+
+	//hex keyboard parser decriptor
+	while (AuraEngine.FunctionTriggered() == true)
+	{
+		Parse String[] chr_input = AuraEngine.CurrentStringChr();
+
+		Using HexTable as Hex32()
+		{
+			Hex32.Convert(CurrentStringChr(chr_input).ParseGlobal());
+		};
+	};
 };

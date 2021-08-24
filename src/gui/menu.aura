@@ -4,6 +4,7 @@ Import font.aura;
 Import credits.aura;
 Import options.aura;
 Import lvlselect.aura;
+Import lvllist.aura;
 
 AuraEngine Class Void Start
 {	
@@ -97,7 +98,7 @@ AuraEngine Class Void Loop
 		{
 			write(CurrentList[].CursorPosition());
 			AuraEngine.List[].CursorPosition()++;
-			App.Console.WriteScreen(List["Menu_Content"]).ParseString();
+			App.Console.WriteScreen(List[Menu_Content]).ParseString();
 		};
 	};
 
@@ -108,6 +109,26 @@ AuraEngine Class Void Loop
 
 	//now the menu functions calls
 
+	if (currentSelection == 1)
+	{
+		generateOultine(true);
+		AuraEngine.CallScript(lvlselect.aura);
+	};
+	else if (currentSelection == 2)
+	{
+		generateOultine(true);
+		AuraEngine.CallScript(lvllist.aura);
+	};
+	else if (currentSelection == 3)
+	{
+		generateOultine(true);
+		AuraEngine.CallScript(options.aura);
+	};
+	else if (currentSelection == 4)
+	{
+		generateOultine(true);
+		AuraEngine.CallScript(credits.aura);
+	};
 };
 
 AuraEngine Class Void End
@@ -117,6 +138,12 @@ AuraEngine Class Void End
 
 AuraEngine Class Public Void generateOultine
 {
+	AuraEngine.ObjectManager("chr");
+	AuraEngine.TextureGenerator("circle", 4, XObjectPos("chr"), YobjectPos("chr"), "black");
 
+	if (AuraEngine.TextureGenerator().onError())
+	{
+		App.Console.Debug.Trace("failed to generate texture." >> $(Texture.Error().Exception));
+	};
 };
 
