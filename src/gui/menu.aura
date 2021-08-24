@@ -1,0 +1,122 @@
+Using Math.aura as MathLib{};
+
+Import font.aura;
+Import credits.aura;
+Import options.aura;
+Import lvlselect.aura;
+
+AuraEngine Class Void Start
+{	
+	Parse int currentSelection = 0;
+
+	Using write() Import font.aura;
+	AuraEngine.Texture().Load("./img/menu.png");
+	AuraEngine.TextureSplit().LoadMap("./img/menu.json");
+
+	AuraEngine.Event(AuraEngine.TextureSplit is TextureSplit.SpriteSplit())
+	{
+		App.Console.WriteScreen("Splited").ParseString();		
+	};
+
+	AuraEngine.CreateList("Menu_Content")
+	{
+		"Story Mode",
+		"Freeplay",
+		"Options",
+		"Credits",
+	};
+
+	//menu background
+
+	Parse int bgid = MathLib.Random(1,5);
+};
+
+AuraEngine Class Void Loop
+{	
+
+	AuraEngine.Event(AuraEngine.Scene is Scene.Start()).Once
+	{
+		int currentSelection = 1;
+	};
+
+
+	AuraEngine.Event(AuraEngine.GetKeyDown is Key.Down("sys.DownArrow")).LoopBlock()
+	{
+		currentSelection++;
+	};
+	AuraEngine.Event(AuraEngine.GetKeyDown is Key.Down("sys.Arrow")).LoopBlock()
+	{
+		currentSelection--;
+	};
+
+
+	if (currentSelection < 1)
+	{
+		currentSelection = 1;
+	};
+	else if (currentSelection < 4)
+	{
+		currentSelection = 4;
+	};
+
+	//textures =)
+
+
+	String[] red = AuraEngine.Texture().Load("./img/bgs/bg1.png");
+	String[] green = AuraEngine.Texture().Load("./img/bgs/bg2.png");
+	String[] pink = AuraEngine.Texture().Load("./img/bgs/bg3.png");
+	String[] blue = AuraEngine.Texture().Load("./img/bgs/bg4.png");
+	String[] yellow = AuraEngine.Texture().Load("./img/bgs/bg5.png");
+
+	AuraEngine.Event(AuraEngine.Texture is Texture.onLoad())
+	{
+		App.Console.WriteScreen("complete texture import.").ParseString();
+		switch(bgid) {
+			case 1:
+				AuraEngine.Background().BackgroundTexture(UseTexture(red));
+			break;
+			case 2:
+				AuraEngine.Background().BackgroundTexture(UseTexture(green));				
+			break;
+			case 3:
+				AuraEngine.Background().BackgroundTexture(UseTexture(pink));				
+			break;
+			case 4:
+				AuraEngine.Background().BackgroundTexture(UseTexture(blue));				
+			break;
+			case 5:
+				AuraEngine.Background().BackgroundTexture(UseTexture(yellow));				
+			break;
+		}
+	};
+
+	//generate the menu selections
+	for (AuraEngine.List().ListContent[])
+	{
+		forEach(ListContent["Menu_Content"]++)
+		{
+			write(CurrentList[].CursorPosition());
+			AuraEngine.List[].CursorPosition()++;
+			App.Console.WriteScreen(List["Menu_Content"]).ParseString();
+		};
+	};
+
+	if (write().onError() == true)
+	{
+		App.Console.WriteScreen("Failed to write using font").ParseString();
+	};
+
+	//now the menu functions calls
+
+};
+
+AuraEngine Class Void End
+{
+	.IOReturn Void;
+};
+
+AuraEngine Class Public Void generateOultine
+{
+
+};
+

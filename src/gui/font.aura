@@ -1,0 +1,42 @@
+AuraEngine Class Void Start
+{
+	AuraEngine.Texture().Load("./img/font.png");
+	AuraEngine.Texture().LoadMap("./img/font.json");
+	AuraEngine.TextureSplit("to.Mem");
+
+	AuraEngine.Event(on.TextureSplit is TextureSplit.End)
+	{
+		write().Init; //initialize the function to be global function =)
+	};
+};
+AuraEngine Class Void Loop
+{
+	write().Loop().isFinish();
+};
+AuraEngine Class Void End
+{
+	write().Trace("end write function!!")
+};
+
+AuraEngine Public Function write(content)
+{
+	Parse String[] text_content = content;
+	Parse int chr_space = 5;
+	Parse int chr_top_padding = 7;
+	Parse int chr_padding = 2;
+
+	AuraEngine.String().Parser.toCharacter(content);
+
+	Parse List chr[AuraEngine.String().toEach("chr" on.AuraEngine.ObjectNode(AuraEngine.JsonParser("chr_name")))]
+
+	AuraEngine.Event(AuraEngine.Function is Function.Triggered).Repeat(chr[].CharCount()) //await for trigger event and check conditions
+	{
+		AuraEngine.ObjectManager().CreateGameObject("writer", 256, 256);
+		AuraEngine.ObjectManager().CreateObject("chr", XObjectPos("writer"), YObjectPos("writer"));
+
+		if (String.ListContent[] == List.Content[].String("<br>"))
+		{
+			AddPosition.Object("writer", 256, 32 + chr_top_padding);
+		};
+	};
+};
