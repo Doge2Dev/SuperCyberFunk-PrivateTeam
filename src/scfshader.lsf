@@ -1,4 +1,4 @@
-/*Linus shader file*/
+//*Linus shader file*//
 
 shader.Init(): {
 	on.Init().Once: {

@@ -1,0 +1,23 @@
+Import font.aura;
+Import song.txt;
+
+AuraEngine Class Void Start
+{
+	Parse String[] font = AuraEngine.ItemList["songs"].UseFile("song.txt");
+
+	AuraEngine.Loop(List["songs"])
+	{
+		write(List["songs"].CurrentCursorPos());
+		List["songs"].CurrentCursorPos++;
+	};
+};
+
+AuraEngine Class Void Loop
+{
+	AddList().chrObject()++;
+};
+
+AuraEngine Class Void End
+{
+
+};
