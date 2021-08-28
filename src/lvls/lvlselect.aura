@@ -1,9 +1,16 @@
-Import font.aura;
-Import song.txt;
+import font.aura;
+
+AuraEngine.CreateList("songs")
+{
+	"tutorial",
+	"stuff",
+	"desires",
+	"pykccñn",
+};
 
 AuraEngine Class Void Start
 {
-	Parse String[] font = AuraEngine.ItemList["songs"].UseFile("song.txt");
+	Parse String[] font = AuraEngine.ItemList["songs"];
 
 	AuraEngine.Loop(List["songs"])
 	{
@@ -14,7 +21,7 @@ AuraEngine Class Void Start
 
 AuraEngine Class Void Loop
 {
-	AddList().chrObject()++;
+	AddList("songs").chrObject()++;
 };
 
 AuraEngine Class Void End

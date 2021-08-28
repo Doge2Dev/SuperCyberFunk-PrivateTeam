@@ -1,5 +1,3 @@
-//*Linus shader file*//
-
 shader.Init(): {
 	on.Init().Once: {
 		Parse GLOBAL ACTIVE = 0;
@@ -7,7 +5,7 @@ shader.Init(): {
 		Parse FLOAT camy = camy + 0.2;
 		Parse INT borderPixel = 3
 		Parse DOUBLE border = ScreenResolution() / ScreenResolution() - borderPixel;
-		Parse TABLE INT borderColor = [0, 0, 0,];
+		Parse TABLE INT borderColor = [0, 0, 0];
 		Parse STRING screen = Screen().GetPolygon();
 
 		on.InstanceInit(): {

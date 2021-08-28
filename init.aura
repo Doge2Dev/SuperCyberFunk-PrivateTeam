@@ -1,7 +1,7 @@
 Library(AuraEngine);
 Library(AuraEngine.Core);
 Library(AuraEngine.Module);
-Import(./settings.json);
+import settings.json;
 
 
 Function Define Init() //current vanilla aura function lmao =3

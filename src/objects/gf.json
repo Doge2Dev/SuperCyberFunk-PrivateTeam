@@ -1,0 +1,127 @@
+{
+  "info": "AuraEngine Generated Object file",
+  "Object": {
+    "object.name": "bf",
+    "object.properties": {
+      "object.spriteSheet": "./src/img/bf.png",
+      "object.animationFrames": {
+        "bf.idle": {
+          "anim.frame000": {
+            "posX": "1024",
+            "posY": "0",
+            "width": "256",
+            "height": "256"
+          },
+          "anim.frame001": {
+            "posX": "1280",
+            "posY": "0",
+            "width": "256",
+            "height": "256"
+          },
+          "anim.frame002": {
+            "posX": "1536",
+            "posY": "0",
+            "width": "256",
+            "height": "256"
+          },
+          "anim.frame003": {
+            "posX": "1792",
+            "posY": "0",
+            "width": "256",
+            "height": "256"
+          },
+          "anim.frame004": {
+            "posX": "2048",
+            "posY": "0",
+            "width": "256",
+            "height": "256"
+          },
+          "anim.frame005": {
+            "posX": "0",
+            "posY": "256",
+            "width": "256",
+            "height": "256"
+          },
+          "anim.frame006": {
+            "posX": "256",
+            "posY": "256",
+            "width": "256",
+            "height": "256"
+          },
+          "anim.frame007": {
+            "posX": "512",
+            "posY": "256",
+            "width": "256",
+            "height": "256"
+          },
+          "anim.frame008": {
+            "posX": "768",
+            "posY": "256",
+            "width": "256",
+            "height": "256"
+          },
+          "anim.frame009": {
+            "posX": "1024",
+            "posY": "256",
+            "width": "256",
+            "height": "256"
+          },
+          "anim.frame010": {
+            "posX": "1280",
+            "posY": "256",
+            "width": "256",
+            "height": "256"
+          },
+          "anim.frame011": {
+            "posX": "1536",
+            "posY": "256",
+            "width": "256",
+            "height": "256"
+          },
+          "anim.frame012": {
+            "posX": "1792",
+            "posY": "256",
+            "width": "256",
+            "height": "256"
+          },
+          "anim.frame013": {
+            "posX": "2048",
+            "posY": "256",
+            "width": "256",
+            "height": "256"
+          },
+          "anim.frame014": {
+            "posX": "0",
+            "posY": "512",
+            "width": "256",
+            "height": "256"
+          },
+          "anim.frame015": {
+            "posX": "256",
+            "posY": "512",
+            "width": "256",
+            "height": "256"
+          },
+          "anim.frame016": {
+            "posX": "512",
+            "posY": "512",
+            "width": "256",
+            "height": "256"
+          },
+          "anim.frame017": {
+            "posX": "768",
+            "posY": "512",
+            "width": "256",
+            "height": "256"
+          },
+          "anim.frame018": {
+            "posX": "1024",
+            "posY": "512",
+            "width": "256",
+            "height": "256"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,18 @@
+Library("AuraSheet");
+AuraEngine.ExportClass() 
+{
+
+	IUse.AuraLibManager("AuraSheet") = ASheet();
+	AuraEngine Class Public anim_GF() 
+	{
+		String[] spritesheet = AuraEngine.LoadTexture("./src/img/gf.png");
+		String[] spritemap = AuraEngine.LoadSpriteMap("./objects/gf.json");
+
+		AuraEngine.Event(AuraEngine.Scene is Scene.Init()).Loop()
+		{
+			int frames = 19;
+			AuraEngine.Object("GF");
+			
+		};
+	};
+};

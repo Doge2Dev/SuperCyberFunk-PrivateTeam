@@ -1,10 +1,10 @@
 Using Math.aura as MathLib{};
 
-Import font.aura;
-Import credits.aura;
-Import options.aura;
-Import lvlselect.aura;
-Import lvllist.aura;
+import font.aura;
+import credits.aura;
+import options.aura;
+import lvlselect.aura;
+import lvllist.aura;
 
 AuraEngine Class Void Start
 {	

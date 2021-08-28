@@ -38,6 +38,14 @@ AuraEngine Public Function write(content)
 		{
 			AddPosition.Object("writer", 256, 32 + chr_top_padding);
 		};
+		if.Match (String.ListContent[] == List.Content[].String(","))
+		{
+			AddPosition.Object("writer", 256, 32 + chr_top_padding);
+		};
+		if.Match (String.ListContent[] == List.Content[].String(";"))
+		{
+			AddPosition.Object("writer", 256, 32 + chr_top_padding);
+		};
 	};
 
 	//hex keyboard parser decriptor
