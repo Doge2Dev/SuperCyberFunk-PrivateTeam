@@ -1,7 +1,10 @@
-Library(AuraEngine);
-Library(AuraEngine.Core);
-Library(AuraEngine.Module);
+import AuraEngine;
+import AuraEngine.Core;
+import AuraEngine.Module;
 import settings.json;
+import FusionEngine;
+import AuraEngine.Compatibility;
+import AuraEngine.FusionComponents;
 
 
 Function Define Init() //current vanilla aura function lmao =3
@@ -10,10 +13,16 @@ Function Define Init() //current vanilla aura function lmao =3
 	IUse.AuraLibManager(AuraEngine.Core) = AuraCore;
 	IUse.AuraLibManager(AuraEngine.Module) = AuraModule;
 	IUse.AuraLibManager(AuraEngine.Dependencies) = AuraDependencies;
+	IUse.FusionEngine.PackageManager(FusionEngine) = Fusion;
 };
 
 //Settings here
 AuraEngine.Project(CurrentProject(Setup)) 
+{
+	ProjectSettings.SetSettings(UseExternal("./settings.json"))
+};
+
+Fusion.Settings() = new Fusion.Project()
 {
 	ProjectSettings.SetSettings(UseExternal("./settings.json"))
 };
@@ -52,5 +61,37 @@ AuraEngine.RenderOptions()
 	};
 };
 
+
+String[] arch  = Fusion.SystemArch();
+Fusion.RenderOptions(Using RenderEngine)
+{
+	switch(systemType = Fusion.MachineArch()) {
+		case Arch.Windows:
+			Fusion.RenderEngine(UseExternal("./settings.json"), "DirectGL.DirectXRender.dll");
+		break
+
+		case Arch.Mac:
+			Fusion.RenderEngine(UseExternal("./settings.json"), "2DGL.OpenNexus.dll");			
+		break
+		case Arch.Linux:
+			Fusion.RenderEngine(UseExternal("./settings.json"), "2DGL.DirectGLSupport.dll");		
+		break
+
+		case Arch.Nexus_System:
+			Fusion.RenderEngine(UseExternal("./settings.json"), "Direct.2DGLSupport.dll");		
+		break
+
+		case Arch.Nexus_Server:
+			Fusion.RenderEngine(UseExternal("./settings.json"), "2DGL.OpenGL2D.dll");		
+		break
+	};
+};
+
 //lets initialize baby =3
+
+Parse Global Define Fusion.Init()
+{
+	Fusion = new Fusion.Initialize().Project;
+};
+
 AuraEngine.Init();

@@ -1,4 +1,4 @@
-Library("AuraSheet");
+import AuraSheet;
 AuraEngine.ExportClass()
 {
 

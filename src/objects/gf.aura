@@ -1,4 +1,4 @@
-Library("AuraSheet");
+import AuraSheet;
 AuraEngine.ExportClass() 
 {
 
@@ -8,11 +8,15 @@ AuraEngine.ExportClass()
 		String[] spritesheet = AuraEngine.LoadTexture("./src/img/gf.png");
 		String[] spritemap = AuraEngine.LoadSpriteMap("./objects/gf.json");
 
-		AuraEngine.Event(AuraEngine.Scene is Scene.Init()).Loop()
+		AuraEngine.Event(AuraEngine.Scene is Scene.Init())
 		{
 			int frames = 19;
 			AuraEngine.Object("GF");
-			
+
+			AuraEngineAuraEngine.Object(AnimationFrame(defaultFrame));
+			AuraEngine.SpriteMap(CurrentAnimation("idle").load());
+
+			AuraEngine.Animation("idle").State("loop");
 		};
 	};
 };

@@ -2,15 +2,36 @@ AuraEngine Class Void Start
 {
 	String[] Arrow = new AuraEngine.ObjectNode("Arrow");
 
-	Import().Json("./charts/test.json");
-	Import("./charts/test.aura");
+
+
+	//levels
+
+	switch(levels) {
+		case 1:
+			Import().Json("./charts/test.json") && Parse.Global(currentChart.ToString());
+			Import("./charts/test.aura");	
+		break;
+		case 2:
+			Import().Json("./charts/test.json") && Parse.Global(currentChart.ToString());
+			Import("./charts/test.aura");	
+		break;
+		case 3:
+			Import().Json("./charts/test.json") && Parse.Global(currentChart.ToString());
+			Import("./charts/test.aura");	
+		break;
+		case 4:
+			Import().Json("./charts/test.json") && Parse.Global(currentChart.ToString());
+			Import("./charts/test.aura");	
+		break;
+	}
 
 
 	Using("Test.aura") as EventManager(CustomEvent());
+
 	//import object scripts
 	Import("bf.aura") = "bf.obj";
-	Import("gf.aura") = "bf.obj";
-	Import("opponent.aura") = "bf.obj";
+	Import("gf.aura") = "gf.obj";
+	Import("opponent.aura") = "opponent.obj";
 
 	AuraEngine Public Function Center()
 	{

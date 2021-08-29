@@ -16,7 +16,7 @@
 			}
 		},
 		"Linus.Shaders" : {
-			"Linus.SCFShader" : {
+			"Linus.CustomShader.ShaderSCF" : {
 				"Linus.SCFShader.External" : "./src/scfshader.lsf"
 			}
 		}

@@ -1,3 +1,5 @@
+import jsonParser;
+
 AuraEngine.ExportScript() {
 
 	AuraEngine Class Void Start
@@ -9,7 +11,8 @@ AuraEngine.ExportScript() {
 			String[] arrowYellow = AuraEngine.Project(ImportObject("Arrow_yellow"));
 		];
 
-		int velocity = 2.4;
+		Parse String[] json = jsonParser.Function();
+		int velocity = json.FileParse().Content(CurrentChart, "song.noteSpeed");
 	};
 
 	AuraEngine Class Void Loop

@@ -9,7 +9,8 @@
 			"2DGL" : "0.2.1",
 			"Linus" : "6.1",
 			"LinusShaders" : "2.3.44",
-			"Styler" : "2.4 alpha"
+			"Styler" : "2.4 alpha",
+			"FusionEngine" : "4.3.2"
  		},
  		"project.Sources" : "./src",
 		"project.Settings" : {
@@ -35,11 +36,12 @@
 				"DirectGL" : "enable",
 				"BlasterFX" : "enable",
 				"2DGL" : "enable",
-				"Styler" : "enable"
+				"Styler" : "enable",
+				"FusionEngine" : "enable"
 			}
 		},
 		"project.customField1" : {
-			"2DGL.Component" : {
+			"2DGL.Components" : {
 				"2DGL" : "Installed",
 				"2DGL.Core" : "Installed",
 				"2DGL.Modules" : "Installed",
@@ -68,9 +70,22 @@
 			}
 		},
 		"project.customField4" : {
+			"Linus.ShaderScript.Path" : "./src/shaderscf.lsf",
 			"LinusShaders.Shaders" : {
 				"Linus.Blur" : "disable",
 				"Linus.CustomShader" : "enable",
+			}
+		},
+		"project.customField5" : {
+			"FusionEngine.Components" : {
+				"Fusion.Camera" : "enable",
+				"Fusion.Android" : "enable",
+				"Fusion.iOS" : "enable",
+				"Fusion.iPadOS" : "enable",
+				"Fusion.NavSupport" : "enable",
+				"Fusion.LinusSupport" : "enable",
+				"Fusion.ModelShape" : "enable",
+				"Fusion.3DGL" : "enable"
 			}
 		}
  	}

@@ -1,6 +1,7 @@
 {
 	"song.name" : "test",
 	"song.bpm" : "100",
+	"song.noteSpeed" : "2.4",
 	"song.include.voice" : "true",
 	"song.sections.scroll" : "scroll.default",
 	"song.players" : [
