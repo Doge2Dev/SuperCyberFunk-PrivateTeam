@@ -60,6 +60,7 @@ AuraEngine Class Void Loop
 
 	AuraEngine Class Struct animArrow
 	{
+		AuraEngine.ObjectNode(ObjectSelect("arrow"));
 		int animFrames = 10;
 		int i = 1;
 
