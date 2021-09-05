@@ -1,5 +1,7 @@
 Using Math.aura as MathLib{};
 
+import App;
+import FusionEngine;
 import font.aura;
 import credits.aura;
 import options.aura;

@@ -1,12 +1,12 @@
 shader.Init(): {
 	on.Init().Once: {
-		Parse GLOBAL ACTIVE = 0;
-		Parse FLOAT camx = camx - 0.2;
-		Parse FLOAT camy = camy + 0.2;
-		Parse INT borderPixel = 3
-		Parse DOUBLE border = ScreenResolution() / ScreenResolution() - borderPixel;
-		Parse TABLE INT borderColor = [0, 0, 0];
-		Parse STRING screen = Screen().GetPolygon();
+		parse GLOBAL ACTIVE = 0;
+		parse FLOAT camx = camx - 0.2;
+		parse FLOAT camy = camy + 0.2;
+		parse INT borderPixel = 3
+		parse DOUBLE border = ScreenResolution() / ScreenResolution() - borderPixel;
+		parse TABLE INT borderColor = [0, 0, 0];
+		parse STRING screen = Screen().GetPolygon();
 
 		on.InstanceInit(): {
 			condition.Variable (Global "ACTIVE" !! 0): {
@@ -28,10 +28,13 @@ shader.Init(): {
 				};
 			};
 		};
+		on.InstanceEnd(): {
+			return Shader.Release().fxData;
+		};
 	};
 	on.Init(): {
 		shader.StartEngine();
-
+		
 		on.Shader().EngineStarted(): {
 			shader.Render();
 		};

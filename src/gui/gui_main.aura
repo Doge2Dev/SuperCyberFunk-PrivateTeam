@@ -1,3 +1,6 @@
+import App;
+import FusionEngine;
+
 //init stuff
 IUse.AuraLibManager("Styler") = Styler();
 IUse.AuraLibManager("StylerPlus") = StylerPlus();
@@ -55,12 +58,13 @@ AuraEngine Class Void Loop
 						AuraEngine.ObjectTexture(Object.SetScale(1));
 					};
 				};
-			};
+			};	
+		};
 		AuraEngine.ObjectTexture("Opponent_Icon", "./assets/icon/index.png", SplitTex(768, 32, 32, 32));
 		AuraEngine.ObjectNode().Properties()
 		{
 			Object.Select("Opponent_Icon");
-			Object.OffsetTexture(-3, 4, 9, -2, -8 ,-2);
+			Object.OffsetTexture(-3, 4, 9, -2, -8 ,-1);
 
 			AuraEngine Private Static Function bump()
 			{

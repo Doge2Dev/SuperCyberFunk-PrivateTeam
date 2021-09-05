@@ -1,6 +1,6 @@
 {
 	"Project" : {
-		"project.name" : "Super Cyber Funk",
+		"project.name" : "Super Cyber Funk!",
 		"project.package" : "com.dogedev.scf-master",
 		"project.dependencies" : {
 			"AuraEngine" : "8.8.7",
@@ -10,7 +10,8 @@
 			"Linus" : "6.1",
 			"LinusShaders" : "2.3.44",
 			"Styler" : "2.4 alpha",
-			"FusionEngine" : "4.3.2"
+			"FusionEngine" : "4.3.2",
+			"FusionCompatibility.Module" : "9.6.2"
  		},
  		"project.Sources" : "./src",
 		"project.Settings" : {
@@ -85,8 +86,34 @@
 				"Fusion.NavSupport" : "enable",
 				"Fusion.LinusSupport" : "enable",
 				"Fusion.ModelShape" : "enable",
-				"Fusion.3DGL" : "enable"
+				"Fusion.3DGL" : "enable",
+				"Fusion.3DCompatibility" : "enable"
+			}
+		},
+		"project.customField6" : {
+			"FusionEngine.Compatibility" : {
+				"Aura.Class" : "enable",
+				"Aura.Function" : "enable",
+				"Aura.Structures" : "enable",
+				"Aura.Syntax" : "enable",
+				"Aura.Variables" : "enable",
+				"Aura.Strings" : "enable",
+			}
+		},
+		"project.customField7" : {
+			"AuraEngine.Compatibility" : {
+				"Fusion.Class" : "enable",
+				"Fusion.Function" : "enable",
+				"Fusion.Structures" : "enable",
+				"Fusion.Stripes" : "enable",
+				"Fusion.SQLData" : "enable",
+				"Fusion.Database" : "enable",
+				"Fusion.Syntax" : "enable",
+				"Fusion.Variables" : "enable",
+				"Fusion.Strings" : "enable",
+				"Fusion.3DAura" : "enable"
 			}
 		}
  	}
 }
+

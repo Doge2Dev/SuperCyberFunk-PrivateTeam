@@ -1,3 +1,6 @@
+import font.aura;
+import Fusion.Compatibility;
+
 AuraEngine Class Void Start
 {
 	AuraEngine.Texture().Load("./img/font.png");
@@ -11,7 +14,7 @@ AuraEngine Class Void Start
 };
 AuraEngine Class Void Loop
 {
-	write().Loop().isFinish();
+	write().Loop(Function.IsFinish());
 };
 AuraEngine Class Void End
 {
@@ -25,9 +28,9 @@ AuraEngine Public Function write(content)
 	Parse int chr_top_padding = 7;
 	Parse int chr_padding = 2;
 
-	AuraEngine.String().Parser.toCharacter(content);
+	AuraEngine.String().Parser(ToCharacter(content));
 
-	Parse List chr[AuraEngine.String().toEach("chr" on.AuraEngine.ObjectNode(AuraEngine.JsonParser("chr_name")))]
+	Parse List chr[AuraEngine.String().toEach("chr", on.AuraEngine.ObjectNode(AuraEngine.JsonParser("chr_name")))]
 
 	AuraEngine.Event(AuraEngine.Function is Function.Triggered).Repeat(chr[].CharCount()) //await for trigger event and check conditions
 	{
@@ -38,24 +41,13 @@ AuraEngine Public Function write(content)
 		{
 			AddPosition.Object("writer", 256, 32 + chr_top_padding);
 		};
-		if.Match (String.ListContent[] == List.Content[].String(","))
+		else if.Match (String.ListContent[] == List.Content[].String(","))
 		{
 			AddPosition.Object("writer", 256, 32 + chr_top_padding);
 		};
-		if.Match (String.ListContent[] == List.Content[].String(";"))
+		else if.Match (String.ListContent[] == List.Content[].String(";"))
 		{
 			AddPosition.Object("writer", 256, 32 + chr_top_padding);
-		};
-	};
-
-	//hex keyboard parser decriptor
-	while (AuraEngine.FunctionTriggered() == true)
-	{
-		Parse String[] chr_input = AuraEngine.CurrentStringChr();
-
-		Using HexTable as Hex32()
-		{
-			Hex32.Convert(CurrentStringChr(chr_input).ParseGlobal());
 		};
 	};
 };

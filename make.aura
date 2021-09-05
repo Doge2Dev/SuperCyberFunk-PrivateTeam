@@ -1,26 +1,29 @@
-import makeFile;
+import MakeFile;
 import AuraPackager;
 import Fusion.Build;
+import MakeFile.FusionBuild;
 import os;
 import App;
 
-Class Public Void make
+Class Struct Public Void make
 {
 	String[] os = os.Library;
 
-	makeFile.ImportContent().All();
-	makeFile.Package().Create("Super Cyber Funk_");
+	MakeFile.ImportContent().All();
+	MakeFile.Build().Create("Super Cyber Funk!");
 
-	makefile.Package().Use(AuraPackager());
-	makeFile.Package().ConvertPackage("Super Cyber Funk_").Using(AuraPackager());
-	makeFile.Package().Export(AuraPackager(Windows.Executable()));
-	makeFile.Package().Export(AuraPackager(MacOS.DMGImage(XCode.Export())));
-	makeFile.Package().Export(AuraPackager(Linux.AppImage(File.Export)));
-	makeFile.Package().Export(AuraPackager(TypeArch = "Nexus.System"), FileType(xnav.Image));
-	makeFile.Package().Export(AuraPackager(TypeArch = "Nexus.Server"), FileType(xnav.Image).PackageArch(32x));
-	makefile.SetExportFolder("./export");
+	MakeFile.Build().Use(AuraPackager());
+	MakeFile.Build().ConvertBuild("Super Cyber Funk_").Using(AuraPackager());
+	MakeFile.Build().Export(AuraPackager(Windows.Executable()));
+	MakeFile.Build().Export(AuraPackager(MacOS.DMGImage(XCode.Export())));
+	MakeFile.Build().Export(AuraPackager(Linux.AppImage(File.Export)));
+	MakeFile.Build().Export(AuraPackager(TypeArch = "Nexus.System"), FileType(xnav.Image));
+	MakeFile.Build().Export(AuraPackager(TypeArch = "Nexus.Server"), FileType(xnav.Image).BuildArch("32x"));
+	MakeFile.Build(Fusion.Build(Arch = xnav.Code));
+	MakeFile.Build().Export(Fusion.Build(Aura.UniversalPackage = ".par"));
+	MakeFile.SetExportFolder("./export");
 
-	if (makeFile.Folder().Exist == false)
+	if (MakeFile.Folder().Exist == false)
 	{
 		os.Execute("md export");
 

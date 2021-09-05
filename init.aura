@@ -19,15 +19,15 @@ Function Define Init() //current vanilla aura function lmao =3
 //Settings here
 AuraEngine.Project(CurrentProject(Setup)) 
 {
-	ProjectSettings.SetSettings(UseExternal("./settings.json"))
+	ProjectSettings.SetSettings(UseExternal("./settings.json"));
 };
 
 Fusion.Settings() = new Fusion.Project()
 {
-	ProjectSettings.SetSettings(UseExternal("./settings.json"))
+	ProjectSettings.SetSettings(UseExternal(ObjectPath("./settings.json"));
 };
 
-AuraCore.Settings(Current) 
+AuraCore.Settings(Current)
 {
 	AuraDependencies.Using("2DGL") && AuraDependencies.LoadDepSettings("./settings.json");
 	AuraEngine.Effects() = Using(IUse.AuraLibManager("BlasterFX") = Blasterfx());
@@ -91,7 +91,7 @@ Fusion.RenderOptions(Using RenderEngine)
 
 Parse Global Define Fusion.Init()
 {
-	Fusion = new Fusion.Initialize().Project;
+	Fusion = Extends Fusion.Initialize().Project;
 };
 
 AuraEngine.Init();

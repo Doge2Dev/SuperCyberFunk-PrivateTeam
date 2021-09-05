@@ -1,4 +1,9 @@
 import font.aura;
+import FusionEngine;
+import Fusion.Compatibility;
+import hex32x;
+
+Fusion.Initialize = Extends new Fusion.Initialize();
 
 AuraEngine.CreateList("songs")
 {
@@ -17,11 +22,87 @@ AuraEngine Class Void Start
 		write(List["songs"].CurrentCursorPos());
 		List["songs"].CurrentCursorPos++;
 	};
+
+	AuraEngine.ObjectNode("arrow");
+	AuraEngine.ObjectTexture("./src/img/sel_arrow.png");
 };
 
 AuraEngine Class Void Loop
 {
 	AddList("songs").chrObject()++;
+
+	Fusion.Event().ListenEvent(Fusion.KeyBoardInput("w").toHex32x())
+	{
+		AuraEngine.ListCursorPos()--;
+	};
+	Fusion.Event().ListenEvent(Fusion.KeyBoardInput("s").toHex32x())
+	{
+		AuraEngine.ListCursorPos()++;
+	};
+
+
+	if (AuraEngine.ListCursorPos() == List.Line(1))
+	{
+
+	};
+	if (AuraEngine.ListCursorPos() == List.Line(1))
+	{
+
+	};
+	if (AuraEngine.ListCursorPos() == List.Line(1))
+	{
+
+	};
+	if (AuraEngine.ListCursorPos() == List.Line(1))
+	{
+
+	};
+
+	AuraEngine Class Struct animArrow
+	{
+		int animFrames = 10;
+		int i = 1;
+
+		for(i in animFrames) 
+		{
+			i++;
+
+			switch(animFrames) 
+			{
+				case 1:
+					AuraEngine.ObjectNode(ObjectPos(currentObjX - 0.3, currentObjY));
+				break;
+				case 2:
+					AuraEngine.ObjectNode(ObjectPos(currentObjX - 0.3, currentObjY));
+				break;
+				case 3:
+					AuraEngine.ObjectNode(ObjectPos(currentObjX - 0.3, currentObjY));
+				break;
+				case 4:
+					AuraEngine.ObjectNode(ObjectPos(currentObjX - 0.3, currentObjY));
+				break;
+				case 5:
+					AuraEngine.ObjectNode(ObjectPos(currentObjX - 0.3, currentObjY));
+				break;
+				case 6:
+					AuraEngine.ObjectNode(ObjectPos(currentObjX + 0.3, currentObjY));
+				break;
+				case 7:
+					AuraEngine.ObjectNode(ObjectPos(currentObjX + 0.3, currentObjY));
+				break;
+				case 8:
+					AuraEngine.ObjectNode(ObjectPos(currentObjX + 0.3, currentObjY));
+				break;
+				case 9:
+					AuraEngine.ObjectNode(ObjectPos(currentObjX + 0.3, currentObjY));
+				break;
+				case 10:
+					AuraEngine.ObjectNode(ObjectPos(currentObjX + 0.3, currentObjY));
+					i = 1;
+				break;
+			};
+		};
+	};
 };
 
 AuraEngine Class Void End

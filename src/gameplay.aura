@@ -84,3 +84,8 @@ AuraEngine Class Void End
 {
 	.IOReturn Void
 };
+
+AuraEngine Class Private Void chartReader
+{
+	
+}
